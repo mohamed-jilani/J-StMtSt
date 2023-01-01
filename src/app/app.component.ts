@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './shared/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Etudiants-CRUDOFFLINE';
+  title = 'json-crud';
+  constructor(public _apiService: ApiService){}
+
+  logout(){
+    this._apiService.sauthenticated(false);
+   }
 }

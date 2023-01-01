@@ -1,0 +1,12 @@
+.card{
+  width: 550px;
+  height: 510px;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 31px 40px;
+  border: 1px solid black;
+  background: black;
+}
+table{
+  color:white;
+}
