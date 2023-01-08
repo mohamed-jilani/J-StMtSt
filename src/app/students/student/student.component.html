@@ -6,9 +6,8 @@
     <tr>
       <th scope="col">S.Id</th>
       <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Mobile</th>
-      <th scope="col">City</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Class</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -16,9 +15,8 @@
     <tr *ngFor="let data of allstudentdata">
       <td>{{data.id}}</td>
       <td>{{data.name}}</td>
-      <td>{{data.email}}</td>
-      <td>{{data.mobile}}</td>
-      <td>{{data.city}}</td>
+      <td>{{data.lastname}}</td>
+      <td>{{data.class}}</td>
       <td>
         <button class="btn btn-info" (click)="edit(data)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
         <button class="btn btn-danger" (click)="deletestudent(data)">Delete</button>
@@ -27,6 +25,10 @@
     </tr>
   </tbody>
 </table>
+
+
+
+
 <div *ngIf="showupdate">
     <div class="container" >
       <div class="row" >
@@ -47,28 +49,35 @@
                             </div>
                             <br>
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Email</label>
-                              <input type="name" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                              <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched " class="text-danger">Email is Required</small>
+                              <label for="exampleInputEmail1">Last Name</label>
+                              <input type="name" formControlName="lastname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter last name">
+                              <small *ngIf="formValue.get('lastname')?.invalid && formValue.get('lastname')?.touched " class="text-danger">Last Name is Required</small>
 
                             </div>
                             <br>
+                            <!--
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Mobile</label>
-                              <input type="number" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobile number">
-                              <small *ngIf="formValue.get('mobile')?.invalid && formValue.get('mobile')?.touched " class="text-danger">Mobile is Required</small>
+                              <label for="exampleInputEmail1">Class</label>
+                              <input type="number" formControlName="class" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobile number">
+                              <small *ngIf="formValue.get('class')?.invalid && formValue.get('class')?.touched " class="text-danger">Class is Required</small>
                             </div>
                             <br>
+                            -->
                             <div class="form-group">
-                              <label for="exampleInputEmail1">City</label>
-                              <input type="name" formControlName="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city name">
-                              <small *ngIf="formValue.get('city')?.invalid && formValue.get('city')?.touched " class="text-danger">City is Required</small>
-                            </div>
+                              <label for="exampleInputEmail1">select Class</label>
+                            <select class="form-select" formControlName="class" aria-label="Default select example">
+                              <option value="C1">C1</option>
+                              <option value="C2">C2</option>
+                              <option value="C3">C3</option>
+                            </select>
+                            <small *ngIf="formValue.get('class')?.invalid && formValue.get('class')?.touched " class="text-danger">Class is Required</small>
+                          </div>
+
 
                           </form>
                           <br>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>&nbsp;
+                            <button type="button" (click)="close()" class="btn btn-warning" data-dismiss="modal">Close</button>&nbsp;
                             <button (click)="update()" type="button" [disabled]="formValue.invalid"  class="btn btn-primary">Update</button>
                           </div>
 
@@ -79,9 +88,7 @@
       </div>
     </div>
   </div>
-<br>
-<br>
-<br>
+
 <br>
 <br>
 <br>

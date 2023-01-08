@@ -21,17 +21,15 @@ export class AddstudentComponent implements OnInit {
   ngOnInit(): void {
     this.formValue=this.formBuilder.group({
       name:['',Validators.required],
-      email: ['',Validators.required],
-      mobile:['',Validators.required],
-      city:['',Validators.required]
+      lastname: ['',Validators.required],
+      class:['',Validators.required],
     })
   }
 
 addstudent(){
   this.studentmodelobj.name = this.formValue.value.name;
-  this.studentmodelobj.mobile = this.formValue.value.mobile;
-  this.studentmodelobj.email = this.formValue.value.email;
-  this.studentmodelobj.city = this.formValue.value.city;
+  this.studentmodelobj.lastname = this.formValue.value.lastname;
+  this.studentmodelobj.class = this.formValue.value.class;
 
   this.api.poststudent(this.studentmodelobj).subscribe(res=>{
     console.log(res)

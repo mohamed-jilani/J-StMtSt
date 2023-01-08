@@ -10,9 +10,13 @@ export class ApiService {
 
   constructor(private _http:HttpClient) { }
 
-  
+  getstudentSp(indice : number){
+    return this._http.get<any>("http://localhost:3000/posts/"+indice+"")
+  .pipe(map((res:any)=>{
+    return res;
+  }))
 
-
+  }
   //creat by post
   poststudent(data:any){
 

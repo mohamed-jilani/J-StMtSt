@@ -17,24 +17,29 @@
                               </div>
                               <br>
                               <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="name" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched " class="text-danger">Email is Required</small>
+                                <label for="exampleInputEmail1">Last name</label>
+                                <input type="name" formControlName="lastname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter last name">
+                                <small *ngIf="formValue.get('lastname')?.invalid && formValue.get('lastname')?.touched " class="text-danger">Last Name is Required</small>
 
                               </div>
                               <br>
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Mobile</label>
-                                <input type="number" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobile number">
-                                <small *ngIf="formValue.get('mobile')?.invalid && formValue.get('mobile')?.touched " class="text-danger">Mobile is Required</small>
+                              <!--
+                                <div class="form-group">
+                                <label for="exampleInputEmail1">Class</label>
+                                <input type="text" formControlName="class" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter class C + number" >
+                                <small *ngIf="formValue.get('class')?.invalid && formValue.get('class')?.touched " class="text-danger">Class is Required</small>
                               </div>
                               <br>
+                            -->
                               <div class="form-group">
-                                <label for="exampleInputEmail1">City</label>
-                                <input type="name" formControlName="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city name">
-                                <small *ngIf="formValue.get('city')?.invalid && formValue.get('city')?.touched " class="text-danger">City is Required</small>
-                              </div>
-
+                                <label for="exampleInputEmail1">select Class</label>
+                              <select class="form-select" formControlName="class" aria-label="Default select example">
+                                <option value="C1">C1</option>
+                                <option value="C2">C2</option>
+                                <option value="C3">C3</option>
+                              </select>
+                              <small *ngIf="formValue.get('class')?.invalid && formValue.get('class')?.touched " class="text-danger">Class is Required</small>
+                            </div>
                             </form>
                             <br>
                             <div class="modal-footer">

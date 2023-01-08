@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { studentdata } from '../model/student.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -18,14 +19,13 @@ export class StudentComponent implements OnInit {
 
   allstudentdata :any;
 
-  constructor(private formBuilder:FormBuilder, private api:ApiService) { this.getdata();}
+  constructor(private formBuilder:FormBuilder, private api:ApiService, private router : Router) { this.getdata();}
 
   ngOnInit(): void {
     this.formValue=this.formBuilder.group({
       name:['',Validators.required],
-      email: ['',Validators.required],
-      mobile:['',Validators.required],
-      city:['',Validators.required]
+      lastname: ['',Validators.required],
+      class:['',Validators.required]
     })
     this.getdata()
   }
@@ -36,17 +36,17 @@ edit(data:any){
   this.showupdate=true;
   this.studentmodelobj.id=data.id;
   this.formValue.controls['name'].setValue(data.name);
-  this.formValue.controls['email'].setValue(data.email);
-  this.formValue.controls['mobile'].setValue(data.mobile);
-  this.formValue.controls['city'].setValue(data.city);
+  this.formValue.controls['lastname'].setValue(data.lastname);
+  this.formValue.controls['class'].setValue(data.class);
+
 }
 
   //update on edit
   update(){
     this.studentmodelobj.name = this.formValue.value.name;
-    this.studentmodelobj.mobile = this.formValue.value.mobile;
-    this.studentmodelobj.email = this.formValue.value.email;
-    this.studentmodelobj.city = this.formValue.value.city;
+    this.studentmodelobj.lastname = this.formValue.value.lastname;
+    this.studentmodelobj.class = this.formValue.value.class;
+
 
     this.api.updatestudent(this.studentmodelobj,this.studentmodelobj.id).subscribe(res=>{
       this.formValue.reset();
@@ -76,5 +76,10 @@ deletestudent(data :any){
     alert("deleted sucessfully");
     this.getdata();
   })
+}
+
+
+close(){
+  this.showupdate=false;
 }
 }

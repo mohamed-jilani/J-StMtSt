@@ -1,0 +1,50 @@
+<div class="container" >
+  <div class="row" >
+
+        <div class="col-md-6">
+
+                <div class="card">
+                      <div class="text-center" >
+                        <h1>Student update</h1>
+                        <hr>
+                      </div>
+
+                      <form [formGroup]="formValue">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Name</label>
+                          <input type="name" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                          <small *ngIf="formValue.get('name')?.invalid && formValue.get('name')?.touched " class="text-danger">Name is Required</small>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email</label>
+                          <input type="name" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched " class="text-danger">Email is Required</small>
+
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Mobile</label>
+                          <input type="number" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobile number">
+                          <small *ngIf="formValue.get('mobile')?.invalid && formValue.get('mobile')?.touched " class="text-danger">Mobile is Required</small>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">City</label>
+                          <input type="name" formControlName="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city name">
+                          <small *ngIf="formValue.get('city')?.invalid && formValue.get('city')?.touched " class="text-danger">City is Required</small>
+                        </div>
+
+                      </form>
+                      <br>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>&nbsp;
+                        <button (click)="update()" type="button" [disabled]="formValue.invalid"  class="btn btn-primary">Update</button>
+                      </div>
+
+                </div>
+        </div>
+
+
+  </div>
+</div>

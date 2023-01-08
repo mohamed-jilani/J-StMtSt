@@ -29,7 +29,7 @@ loginform!:FormGroup;
       })
       // condition for login
       if(user){
-        alert("sucessfully logged in ");
+        //alert("sucessfully logged in ");
         this.loginform.reset();
         this._apiService.sauthenticated(true);
         this.router.navigate(['student']);
